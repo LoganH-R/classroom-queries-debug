@@ -14,8 +14,8 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new
-    @course.title = params.fetch("query_title")
-    @course.term_offered = params.fetch("query_term_")
+    @course.title = params.fetch("q_title")
+    @course.term_offered = params.fetch("query_term")
     @course.department_id = params.fetch("query_department_id")
 
     if @course.valid?
@@ -30,8 +30,8 @@ class CoursesController < ApplicationController
     id = params.fetch("path_id")
     @course = Course.where({ :id => the_id }).at(0)
 
-    @course.title = params.fetch("query_title")
-    @course.term_offered = params.fetch("query_term_offered")
+    @course.title = params.fetch("q_title")
+    @course.term_offered = params.fetch("query_term")
     @course.department_id = params.fetch("query_department_id")
 
     if @course.valid?
